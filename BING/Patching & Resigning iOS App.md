@@ -1,5 +1,6 @@
 
-##Patching and Re-Signing iOS Apps
+Patching and Re-Signing iOS Apps
+==
 
 [原文地址](http://www.vantagepoint.sg/blog/85-patching-and-re-signing-ios-apps)
 
@@ -12,11 +13,12 @@
 为完成以下一系列的步骤，先从[OWASP Mobile Testing Guide 仓库](https://github.com/OWASP/owasp-mstg/blob/master/Crackmes/iOS/Level_01/)下载UnCrackable iOS App Level 1。我们的目标是使UnCrackable应用在启动过程中加载FridaGadget.dylib，使我们能使用Frida来分析它。
 
 ###获取开发者配置文件以及证书
+
 由Apple签名的配置文件**provisioning profile**是一个plist文件，它能将你在一台或多台设备上的代码签名证书**code signing certificate**加入白名单。换种说法，苹果明确允许你的app运行在某些环境下，比如在被选中设备上运行调试。**provisioning profile**也罗列了你的app所被授予的权限。**code signing certificate**包含了你实际用来签名的私钥。
 
 有两种法师来获取证书和配置文件，这取决于你是否已注册成为一个iOS开发者。
 
-####使用一个iOS开发者账户：
+使用一个iOS开发者账户：
 如果你之前使用Xcode开发或者部署过iOS应用，说明你已经有自己的代码签名证书了。使用**security**工具来列出你的签名标识：
 
 ```
